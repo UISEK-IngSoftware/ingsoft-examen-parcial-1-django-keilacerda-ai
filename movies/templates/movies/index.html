@@ -1,0 +1,25 @@
+{% extends "movies/base.html" %}
+{% block title %}Página Principal{% endblock title %}
+{% block content %}
+    <h3>Películas</h3>
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-sm-4">
+            <br>
+            
+            <div class="card" style="width: 80%;">
+                <img class="card-img-top" src="{{ movie.poster.url }}" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{ movie.title }}</h5>
+                  <p class="card-text">Año: {{ movie.publication_year }} </p>
+                  <a href="{% url 'detail' movie.id %}" class="btn btn-primary">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </div>
+            </div>
+    </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}
+
+    
